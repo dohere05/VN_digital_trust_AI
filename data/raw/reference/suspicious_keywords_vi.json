@@ -1,0 +1,156 @@
+{
+  "reward": {
+    "weight": 0.22,
+    "severity": "high",
+    "title": "Dấu hiệu trúng thưởng / nhận quà",
+    "keywords": [
+      "trúng thưởng",
+      "trung thuong",
+      "nhận thưởng",
+      "nhan thuong",
+      "nhận quà",
+      "nhan qua",
+      "quà tặng",
+      "qua tang",
+      "giải thưởng",
+      "giai thuong",
+      "may mắn trúng",
+      "chúc mừng bạn đã trúng"
+    ]
+  },
+
+  "credential": {
+    "weight": 0.3,
+    "severity": "high",
+    "title": "Yêu cầu thông tin bảo mật",
+    "keywords": [
+      "cung cấp otp",
+      "đọc mã otp",
+      "nhập otp",
+      "mã otp",
+      "mật khẩu",
+      "mat khau",
+      "mã pin",
+      "ma pin",
+      "tên đăng nhập",
+      "ten dang nhap"
+    ]
+  },
+
+  "personal_information": {
+    "weight": 0.23,
+    "severity": "high",
+    "title": "Yêu cầu cung cấp thông tin cá nhân",
+    "keywords": [
+      "nhập thông tin",
+      "cung cấp thông tin",
+      "thông tin cá nhân",
+      "căn cước công dân",
+      "cccd",
+      "cmnd",
+      "số tài khoản",
+      "so tai khoan",
+      "thông tin ngân hàng"
+    ]
+  },
+
+  "account_warning": {
+    "weight": 0.2,
+    "severity": "high",
+    "title": "Đe dọa khóa hoặc hạn chế tài khoản",
+    "keywords": [
+      "tài khoản bị khóa",
+      "tài khoản sắp bị khóa",
+      "khóa tài khoản",
+      "tạm khóa tài khoản",
+      "tài khoản bất thường",
+      "tài khoản vi phạm"
+    ]
+  },
+
+  "money_transfer": {
+    "weight": 0.3,
+    "severity": "high",
+    "title": "Yêu cầu chuyển tiền / thanh toán",
+    "keywords": [
+      "chuyển khoản",
+      "chuyển tiền",
+      "phí nhận thưởng",
+      "phí nhận quà",
+      "phí xác minh",
+      "đóng phí",
+      "thanh toán ngay"
+    ]
+  },
+
+  "verification": {
+    "weight": 0.14,
+    "severity": "medium",
+    "title": "Yêu cầu xác minh",
+    "keywords": [
+      "xác minh",
+      "xac minh",
+      "xác thực",
+      "xac thuc",
+      "xác minh tài khoản",
+      "xác minh thông tin"
+    ]
+  },
+
+  "urgency": {
+    "weight": 0.14,
+    "severity": "medium",
+    "title": "Tạo cảm giác khẩn cấp",
+    "keywords": [
+      "ngay lập tức",
+      "ngay hôm nay",
+      "khẩn cấp",
+      "khan cap",
+      "trong 24 giờ",
+      "trong 2 giờ",
+      "hết hạn hôm nay",
+      "xử lý ngay",
+      "thực hiện ngay"
+    ]
+  },
+
+  "link_action": {
+    "weight": 0.18,
+    "severity": "high",
+    "title": "Yêu cầu truy cập liên kết",
+    "keywords": [
+      "truy cập đường link",
+      "truy cập liên kết",
+      "nhấp vào liên kết",
+      "bấm vào link",
+      "bấm vào đường dẫn",
+      "click vào link",
+      "click link"
+    ]
+  },
+
+  "impersonation": {
+    "weight": 0.18,
+    "severity": "medium",
+    "title": "Có dấu hiệu tự xưng tổ chức",
+    "keywords": [
+      "công an",
+      "cơ quan công an",
+      "viện kiểm sát",
+      "tòa án",
+      "ngân hàng",
+      "viettel",
+      "vinaphone",
+      "mobifone",
+      "bộ công an",
+      "cục thuế"
+    ]
+  },
+
+  "promotion": {
+    "weight": 0.08,
+    "severity": "low",
+    "title": "Nội dung quảng cáo / ưu đãi",
+    "keywords": ["ưu đãi", "khuyến mãi", "giảm giá", "miễn phí", "free"]
+  }
+}

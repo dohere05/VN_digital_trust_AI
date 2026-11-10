@@ -1,0 +1,21 @@
+{
+  "accuracy": 0.8886925795053003,
+  "precision": 0.6939890710382514,
+  "recall": 0.9477611940298507,
+  "f1": 0.8012618296529969,
+  "confusion_matrix": [
+    [
+      376,
+      56
+    ],
+    [
+      7,
+      127
+    ]
+  ],
+  "train_samples": 2091,
+  "test_samples": 566,
+  "features": 15230,
+  "model": "Logistic Regression",
+  "vectorizer": "TF-IDF Char 3-5 gram"
+}

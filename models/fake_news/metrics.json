@@ -1,0 +1,85 @@
+{
+  "dataset": "train.csv",
+  "original_samples": 5172,
+  "final_samples": 4858,
+  "train_samples": 3886,
+  "test_samples": 972,
+  "features": 65461,
+  "label_mapping": {
+    "0": "real",
+    "1": "fake"
+  },
+  "best_model": "Logistic Regression",
+  "best_model_metrics": {
+    "model_name": "Logistic Regression",
+    "accuracy": 0.8930041152263375,
+    "precision": 0.6807228915662651,
+    "recall": 0.6890243902439024,
+    "f1": 0.6848484848484848,
+    "confusion_matrix": [
+      [
+        755,
+        53
+      ],
+      [
+        51,
+        113
+      ]
+    ]
+  },
+  "all_models": {
+    "Logistic Regression": {
+      "model_name": "Logistic Regression",
+      "accuracy": 0.8930041152263375,
+      "precision": 0.6807228915662651,
+      "recall": 0.6890243902439024,
+      "f1": 0.6848484848484848,
+      "confusion_matrix": [
+        [
+          755,
+          53
+        ],
+        [
+          51,
+          113
+        ]
+      ]
+    },
+    "Linear SVM": {
+      "model_name": "Linear SVM",
+      "accuracy": 0.9032921810699589,
+      "precision": 0.7692307692307693,
+      "recall": 0.6097560975609756,
+      "f1": 0.6802721088435374,
+      "confusion_matrix": [
+        [
+          778,
+          30
+        ],
+        [
+          64,
+          100
+        ]
+      ]
+    },
+    "Multinomial Naive Bayes": {
+      "model_name": "Multinomial Naive Bayes",
+      "accuracy": 0.845679012345679,
+      "precision": 1.0,
+      "recall": 0.08536585365853659,
+      "f1": 0.15730337078651685,
+      "confusion_matrix": [
+        [
+          808,
+          0
+        ],
+        [
+          150,
+          14
+        ]
+      ]
+    }
+  },
+  "ui_model": "Logistic Regression",
+  "vectorizer": "TF-IDF Word Unigram + Bigram"
+}

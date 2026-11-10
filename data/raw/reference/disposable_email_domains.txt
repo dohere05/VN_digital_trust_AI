@@ -1,0 +1,4 @@
+# Mỗi dòng một domain email tạm. Bổ sung từ nguồn dữ liệu được phép sử dụng.
+mailinator.com
+guerrillamail.com
+10minutemail.com

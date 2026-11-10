@@ -1,0 +1,1121 @@
+/* ==========================================================
+   VIETNAM DIGITAL TRUST AI
+   DARK PROFESSIONAL INTERFACE
+   Chỉ xử lý giao diện - không ảnh hưởng logic hệ thống
+   ========================================================== */
+
+/* ==========================================================
+   1. DESIGN SYSTEM
+   ========================================================== */
+
+:root {
+  --bg-main: #07111f;
+  --bg-surface: #0c1727;
+  --bg-card: #101c2d;
+  --bg-input: #0a1625;
+  --bg-hover: #14253a;
+
+  --border: rgba(148, 163, 184, 0.16);
+  --border-cyan: rgba(34, 211, 238, 0.38);
+
+  --text-main: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --blue: #3b82f6;
+  --cyan: #22d3ee;
+  --cyan-soft: #67e8f9;
+
+  --green: #39ff88;
+  --green-soft: #86efac;
+
+  --amber: #fbbf24;
+  --amber-soft: #fde68a;
+
+  --red: #fb4f5f;
+  --red-soft: #fca5a5;
+
+  --radius-small: 10px;
+  --radius-medium: 14px;
+  --radius-large: 18px;
+  --radius-extra: 24px;
+}
+
+/* ==========================================================
+   2. GLOBAL
+   ========================================================== */
+
+html,
+body,
+.stApp {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-main);
+}
+
+.stApp {
+  color: var(--text-main);
+
+  background: radial-gradient(
+      circle at 18% 0%,
+      rgba(59, 130, 246, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(circle at 82% 0%, rgba(34, 211, 238, 0.08), transparent 27%),
+    var(--bg-main);
+}
+
+/* ==========================================================
+   3. MAIN CONTENT
+   ========================================================== */
+
+.block-container {
+  max-width: 1120px;
+
+  padding-top: 2rem !important;
+  padding-bottom: 4rem !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+[data-testid="stHeader"] {
+  background: transparent;
+}
+
+/* ==========================================================
+   4. HERO HEADER
+   ========================================================== */
+
+.vdt-hero {
+  position: relative;
+
+  text-align: center;
+
+  padding: 30px 28px 28px;
+
+  margin-top: 4px;
+  margin-bottom: 24px;
+
+  border: 1px solid rgba(34, 211, 238, 0.15);
+
+  border-radius: var(--radius-extra);
+
+  background: linear-gradient(
+    145deg,
+    rgba(15, 29, 48, 0.96),
+    rgba(8, 18, 32, 0.96)
+  );
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.23), 0 0 30px rgba(34, 211, 238, 0.05);
+
+  overflow: hidden;
+}
+
+.vdt-hero::before {
+  content: "";
+
+  position: absolute;
+
+  left: 20%;
+  top: 0;
+
+  width: 60%;
+  height: 1px;
+
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+
+.vdt-hero h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 2.15rem;
+  font-weight: 750;
+  line-height: 1.2;
+
+  letter-spacing: -0.04em;
+}
+
+.vdt-hero p {
+  max-width: 720px;
+
+  margin: 9px auto 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   5. TEXT
+   ========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-main);
+}
+
+h2 {
+  margin-top: 0 !important;
+
+  color: #f8fafc !important;
+
+  font-size: 1.55rem !important;
+  font-weight: 720 !important;
+
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  margin-top: 1.7rem !important;
+  margin-bottom: 0.75rem !important;
+
+  color: #e8eef7 !important;
+
+  font-size: 1.14rem !important;
+  font-weight: 680 !important;
+}
+
+p {
+  color: var(--text-main);
+
+  line-height: 1.62;
+}
+
+[data-testid="stCaptionContainer"] {
+  color: var(--text-secondary) !important;
+
+  font-size: 0.85rem !important;
+  line-height: 1.5 !important;
+}
+
+/* ==========================================================
+   6. NAVIGATION BAR
+   ========================================================== */
+
+/*
+   QUAN TRỌNG:
+   Streamlit bọc stRadio trong một stElementContainer.
+   Nếu chỉ căn chính stRadio thì khung vẫn có thể bị lệch vì
+   wrapper bên ngoài đang co theo chiều rộng của widget.
+   Vì vậy cần mở rộng wrapper ra 100% trước, rồi mới căn giữa radio.
+*/
+
+div[data-testid="stElementContainer"]:has(div[data-testid="stRadio"]),
+div[data-testid="stElementContainer"]:has(> div[data-testid="stRadio"]) {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Khung chức năng */
+div[data-testid="stRadio"] {
+  width: min(760px, 100%) !important;
+  max-width: 760px !important;
+
+  box-sizing: border-box !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+
+  padding: 14px 16px 12px !important;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-large);
+
+  background: rgba(12, 23, 39, 0.9);
+
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* Tiêu đề "Chức năng" */
+div[data-testid="stRadio"] > label {
+  width: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 0 10px 0 !important;
+  padding: 0 !important;
+
+  text-align: center !important;
+}
+
+div[data-testid="stRadio"] > label p {
+  width: 100% !important;
+
+  margin: 0 !important;
+
+  text-align: center !important;
+
+  color: #dbe5f2 !important;
+
+  font-size: 0.9rem !important;
+  font-weight: 650 !important;
+}
+
+/* Nhóm 5 chức năng */
+div[data-testid="stRadio"] div[role="radiogroup"] {
+  width: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 8px !important;
+}
+
+/* Từng mục chức năng */
+div[data-testid="stRadio"] div[role="radiogroup"] > label {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+
+  min-height: 44px;
+
+  margin: 0 !important;
+  padding: 8px 10px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 11px;
+
+  text-align: center !important;
+
+  cursor: pointer;
+
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] > label:hover {
+  background: rgba(34, 211, 238, 0.08);
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] > label p {
+  margin: 0 !important;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* ==========================================================
+   7. LABEL
+   ========================================================== */
+
+[data-testid="stWidgetLabel"] p {
+  color: #cbd5e1 !important;
+
+  font-size: 0.89rem !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================================
+   8. INPUT
+   ========================================================== */
+
+div[data-baseweb="input"] {
+  min-height: 48px;
+
+  border: 1px solid var(--border) !important;
+
+  border-radius: var(--radius-medium) !important;
+
+  background: var(--bg-input) !important;
+
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+div[data-baseweb="input"]:focus-within {
+  border-color: rgba(34, 211, 238, 0.65) !important;
+
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.09);
+}
+
+div[data-baseweb="input"] input {
+  padding-left: 14px;
+  padding-right: 14px;
+
+  color: var(--text-main) !important;
+
+  font-size: 0.93rem;
+}
+
+div[data-baseweb="input"] input::placeholder {
+  color: #53647a !important;
+}
+
+/* ==========================================================
+   9. TEXT AREA
+   ========================================================== */
+
+div[data-baseweb="textarea"] {
+  border-radius: var(--radius-medium) !important;
+}
+
+div[data-baseweb="textarea"] textarea {
+  padding: 15px 16px !important;
+
+  border: 1px solid var(--border) !important;
+
+  border-radius: var(--radius-medium) !important;
+
+  background: var(--bg-input) !important;
+
+  color: var(--text-main) !important;
+
+  font-size: 0.93rem !important;
+
+  line-height: 1.65 !important;
+
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+div[data-baseweb="textarea"] textarea:focus {
+  border-color: rgba(34, 211, 238, 0.65) !important;
+
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.09) !important;
+}
+
+div[data-baseweb="textarea"] textarea::placeholder {
+  color: #53647a !important;
+}
+
+/* ==========================================================
+   10. BUTTON
+   ========================================================== */
+
+.stButton {
+  margin-top: 6px;
+}
+
+.stButton > button {
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 10px 22px;
+
+  border: 1px solid rgba(34, 211, 238, 0.3) !important;
+
+  border-radius: var(--radius-medium) !important;
+
+  background: linear-gradient(135deg, #2563eb, #0891b2) !important;
+
+  color: #ffffff !important;
+
+  font-size: 0.93rem !important;
+  font-weight: 680 !important;
+
+  box-shadow: 0 7px 22px rgba(8, 145, 178, 0.18);
+
+  transition: transform 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
+}
+
+.stButton > button:hover {
+  transform: translateY(-1px);
+
+  filter: brightness(1.08);
+
+  border-color: rgba(103, 232, 249, 0.52) !important;
+
+  box-shadow: 0 10px 28px rgba(8, 145, 178, 0.26);
+}
+
+.stButton > button:active {
+  transform: translateY(0);
+}
+
+/* Biểu tượng lịch sử ở góc trên bên phải */
+.stButton > button[kind="secondary"] {
+  min-width: 48px;
+  padding: 8px 10px;
+
+  border-color: rgba(34, 211, 238, 0.34) !important;
+  border-radius: 12px !important;
+
+  background: rgba(12, 23, 39, 0.92) !important;
+  color: var(--cyan-soft) !important;
+
+  font-size: 1.15rem !important;
+  box-shadow: none;
+}
+
+.stButton > button[kind="secondary"]:hover {
+  background: rgba(20, 37, 58, 0.98) !important;
+}
+
+/* Tooltip "Xem lịch sử kiểm tra" */
+[data-testid="stTooltipContent"],
+[data-testid="stTooltipContent"] p,
+[data-testid="stTooltipContent"] span,
+[data-testid="stTooltipContent"] * {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* Toast "Đã lưu kết quả vào lịch sử phiên này." */
+[data-testid="stToastText"],
+[data-testid="stToastText"] p,
+[data-testid="stToastText"] span,
+[data-testid="stToastText"] * {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* ==========================================================
+   HỘP THOẠI LỊCH SỬ
+   Đồng bộ màu / khoảng cách / chữ với toàn app
+   ========================================================== */
+
+div[data-testid="stDialog"],
+div.stDialog,
+div[role="dialog"] {
+  color: var(--text-main) !important;
+}
+
+/* Khung nội dung dialog (Streamlit bọc nền trắng bên trong) */
+div[data-testid="stDialog"] > div,
+div.stDialog > div,
+div[role="dialog"] > div {
+  border: 1px solid rgba(34, 211, 238, 0.24) !important;
+  border-radius: var(--radius-extra) !important;
+
+  background: linear-gradient(145deg, #101c2d, #081321) !important;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.48), 0 0 35px rgba(34, 211, 238, 0.08) !important;
+
+  color: var(--text-main) !important;
+}
+
+/* Padding khung dialog cho dễ đọc */
+div[data-testid="stDialog"] > div > div,
+div.stDialog > div > div,
+div[role="dialog"] > div > div {
+  padding: 18px 20px 20px 20px !important;
+  color: var(--text-main) !important;
+}
+
+/* Tiêu đề + nút đóng */
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] p,
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] h1,
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] h2,
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] h3,
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] h4,
+div[role="dialog"] [data-testid="stMarkdownContainer"] p,
+div[role="dialog"] [data-testid="stMarkdownContainer"] h1,
+div[role="dialog"] [data-testid="stMarkdownContainer"] h2,
+div[role="dialog"] [data-testid="stMarkdownContainer"] h3,
+div[role="dialog"] [data-testid="stMarkdownContainer"] h4 {
+  color: #f8fafc !important;
+}
+
+div[data-testid="stDialog"] button[aria-label="Close"],
+div[role="dialog"] button[aria-label="Close"] {
+  color: var(--cyan-soft) !important;
+  opacity: 0.9;
+}
+
+div[data-testid="stDialog"] button[aria-label="Close"]:hover,
+div[role="dialog"] button[aria-label="Close"]:hover {
+  color: #ffffff !important;
+  opacity: 1;
+}
+
+/* Caption hướng dẫn trong dialog */
+div[data-testid="stDialog"] [data-testid="stCaptionContainer"],
+div[role="dialog"] [data-testid="stCaptionContainer"] {
+  margin: 0 0 14px 0 !important;
+  padding: 10px 12px !important;
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: var(--radius-small);
+
+  background: rgba(10, 22, 37, 0.72);
+
+  color: #cbd5e1 !important;
+
+  font-size: 0.86rem !important;
+  line-height: 1.55 !important;
+}
+
+/* Khoảng cách nội dung trong dialog */
+div[data-testid="stDialog"] [data-testid="stVerticalBlock"],
+div[role="dialog"] [data-testid="stVerticalBlock"] {
+  gap: 0.7rem !important;
+}
+
+/* Expander từng lần kiểm tra */
+div[data-testid="stDialog"] [data-testid="stExpander"],
+div[role="dialog"] [data-testid="stExpander"] {
+  margin-top: 10px !important;
+  margin-bottom: 4px !important;
+
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  border-radius: var(--radius-large) !important;
+
+  background: linear-gradient(
+    145deg,
+    rgba(16, 28, 45, 0.98),
+    rgba(10, 21, 37, 0.98)
+  ) !important;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+div[data-testid="stDialog"] [data-testid="stExpander"] summary,
+div[role="dialog"] [data-testid="stExpander"] summary {
+  padding: 14px 16px !important;
+
+  color: #e2e8f0 !important;
+
+  font-size: 0.9rem !important;
+  font-weight: 650 !important;
+  line-height: 1.45 !important;
+}
+
+div[data-testid="stDialog"] [data-testid="stExpander"] summary:hover,
+div[role="dialog"] [data-testid="stExpander"] summary:hover {
+  color: #ffffff !important;
+  background: rgba(34, 211, 238, 0.06);
+}
+
+div[data-testid="stDialog"] [data-testid="stExpander"] summary span,
+div[data-testid="stDialog"] [data-testid="stExpander"] summary p,
+div[role="dialog"] [data-testid="stExpander"] summary span,
+div[role="dialog"] [data-testid="stExpander"] summary p {
+  color: inherit !important;
+}
+
+/* Khi mở dòng lịch sử: "11/11/2026 ... · Tin tức · Rủi ro thấp ..." → chữ đen */
+div[data-testid="stDialog"] [data-testid="stExpander"] details[open] > summary,
+div[role="dialog"] [data-testid="stExpander"] details[open] > summary,
+div[data-testid="stDialog"] [data-testid="stExpander"] details[open] > summary span,
+div[data-testid="stDialog"] [data-testid="stExpander"] details[open] > summary p,
+div[role="dialog"] [data-testid="stExpander"] details[open] > summary span,
+div[role="dialog"] [data-testid="stExpander"] details[open] > summary p {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background: #ffffff !important;
+}
+
+div[data-testid="stDialog"] [data-testid="stExpander"] details[open] > summary:hover,
+div[role="dialog"] [data-testid="stExpander"] details[open] > summary:hover {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background: #f8fafc !important;
+}
+
+/* Phần nội dung khi mở expander */
+div[data-testid="stDialog"] [data-testid="stExpander"] [data-testid="stExpanderDetails"],
+div[role="dialog"] [data-testid="stExpander"] [data-testid="stExpanderDetails"],
+div[data-testid="stDialog"] [data-testid="stExpander"] > details > div,
+div[role="dialog"] [data-testid="stExpander"] > details > div {
+  padding: 4px 16px 16px 16px !important;
+}
+
+/* Tiêu đề mục con trong lịch sử */
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] h4,
+div[role="dialog"] [data-testid="stMarkdownContainer"] h4 {
+  margin: 14px 0 8px 0 !important;
+  padding-bottom: 6px;
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+
+  color: #e8eef7 !important;
+
+  font-size: 1.02rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] strong,
+div[role="dialog"] [data-testid="stMarkdownContainer"] strong {
+  color: #cbd5e1 !important;
+
+  font-size: 0.9rem !important;
+  font-weight: 650 !important;
+}
+
+div[data-testid="stDialog"] [data-testid="stMarkdownContainer"] p,
+div[role="dialog"] [data-testid="stMarkdownContainer"] p {
+  color: #e2e8f0 !important;
+  line-height: 1.65 !important;
+}
+
+/* Khối nội dung đã kiểm tra / JSON: nền tối + chữ rõ */
+div[data-testid="stDialog"] [data-testid="stCode"],
+div[role="dialog"] [data-testid="stCode"],
+div[data-testid="stDialog"] pre,
+div[role="dialog"] pre {
+  margin: 6px 0 12px 0 !important;
+  padding: 12px 14px !important;
+
+  border: 1px solid rgba(148, 163, 184, 0.18) !important;
+  border-radius: var(--radius-medium) !important;
+
+  background: #0a1625 !important;
+
+  color: #e2e8f0 !important;
+
+  font-family: "Segoe UI", Arial, sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+div[data-testid="stDialog"] [data-testid="stCode"] *,
+div[role="dialog"] [data-testid="stCode"] *,
+div[data-testid="stDialog"] [data-testid="stCode"] code,
+div[data-testid="stDialog"] pre code,
+div[data-testid="stDialog"] code,
+div[role="dialog"] [data-testid="stCode"] code,
+div[role="dialog"] pre code,
+div[role="dialog"] code {
+  padding: 0 !important;
+
+  border: none !important;
+  background: transparent !important;
+
+  color: #e2e8f0 !important;
+  -webkit-text-fill-color: #e2e8f0 !important;
+
+  font-family: "Segoe UI", Arial, sans-serif !important;
+  font-size: 0.9rem !important;
+  line-height: 1.55 !important;
+}
+
+/* Expander "Xem dữ liệu phân tích chi tiết" — chữ đen khi mở */
+div[data-testid="stDialog"] [data-testid="stExpander"] [data-testid="stExpander"] summary,
+div[role="dialog"] [data-testid="stExpander"] [data-testid="stExpander"] summary,
+div[data-testid="stDialog"] [data-testid="stExpander"] [data-testid="stExpander"] summary span,
+div[data-testid="stDialog"] [data-testid="stExpander"] [data-testid="stExpander"] summary p,
+div[role="dialog"] [data-testid="stExpander"] [data-testid="stExpander"] summary span,
+div[role="dialog"] [data-testid="stExpander"] [data-testid="stExpander"] summary p {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+div[data-testid="stDialog"] [data-testid="stExpander"] [data-testid="stExpander"],
+div[role="dialog"] [data-testid="stExpander"] [data-testid="stExpander"] {
+  background: #ffffff !important;
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+}
+
+/* JSON chi tiết trong dialog — chữ đen */
+div[data-testid="stDialog"] [data-testid="stJson"],
+div[role="dialog"] [data-testid="stJson"] {
+  margin-top: 8px !important;
+  padding: 12px 14px !important;
+
+  border: 1px solid rgba(148, 163, 184, 0.28) !important;
+  border-radius: var(--radius-medium) !important;
+
+  background: #ffffff !important;
+}
+
+div[data-testid="stDialog"] [data-testid="stJson"] *,
+div[role="dialog"] [data-testid="stJson"] * {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  font-size: 0.86rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Alert trống lịch sử */
+div[data-testid="stDialog"] [data-testid="stAlert"],
+div[role="dialog"] [data-testid="stAlert"] {
+  border-color: rgba(34, 211, 238, 0.28) !important;
+  background: rgba(12, 23, 39, 0.95) !important;
+}
+
+div[data-testid="stDialog"] [data-testid="stAlert"] p,
+div[role="dialog"] [data-testid="stAlert"] p {
+  color: #e2e8f0 !important;
+}
+
+/* ==========================================================
+   11. DIVIDER
+   ========================================================== */
+
+hr {
+  height: 1px !important;
+
+  margin: 2rem 0 !important;
+
+  border: 0 !important;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(148, 163, 184, 0.24),
+    transparent
+  ) !important;
+}
+
+/* ==========================================================
+   12. ALERT BOX
+   ========================================================== */
+
+div[data-testid="stAlert"] {
+  margin-top: 8px;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-medium) !important;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+div[data-testid="stAlert"] p {
+  font-size: 0.89rem !important;
+  line-height: 1.55 !important;
+}
+
+/* ==========================================================
+   13. METRICS
+   ========================================================== */
+
+[data-testid="stMetric"] {
+  min-height: 118px;
+
+  padding: 17px 18px;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-large);
+
+  background: linear-gradient(
+    145deg,
+    rgba(16, 28, 45, 0.97),
+    rgba(10, 21, 37, 0.97)
+  );
+
+  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.14);
+}
+
+[data-testid="stMetricLabel"] {
+  color: var(--text-secondary) !important;
+
+  font-size: 0.87rem !important;
+  font-weight: 560 !important;
+}
+
+[data-testid="stMetricValue"] {
+  color: var(--cyan-soft) !important;
+
+  font-size: 1.75rem !important;
+  font-weight: 720 !important;
+
+  letter-spacing: -0.03em;
+}
+
+/* ==========================================================
+   14. PROGRESS BAR
+   ========================================================== */
+
+[data-testid="stProgress"] {
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+[data-testid="stProgress"] > div {
+  overflow: hidden;
+
+  border-radius: 999px !important;
+
+  background: rgba(148, 163, 184, 0.12) !important;
+}
+
+[data-testid="stProgress"] > div > div > div {
+  border-radius: 999px !important;
+
+  background: linear-gradient(90deg, var(--blue), var(--cyan)) !important;
+}
+
+/* ==========================================================
+   15. EXPANDER
+   ========================================================== */
+
+[data-testid="stExpander"] {
+  margin-top: 14px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border) !important;
+
+  border-radius: var(--radius-medium) !important;
+
+  background: rgba(12, 23, 39, 0.78) !important;
+}
+
+[data-testid="stExpander"] details {
+  background: transparent !important;
+}
+
+[data-testid="stExpander"] summary {
+  color: var(--text-main);
+
+  font-weight: 600;
+}
+
+/* ==========================================================
+   16. INLINE CODE
+   ========================================================== */
+
+code {
+  padding: 2px 6px;
+
+  border: 1px solid rgba(34, 211, 238, 0.12);
+
+  border-radius: 6px;
+
+  background: rgba(34, 211, 238, 0.08) !important;
+
+  color: var(--cyan-soft) !important;
+}
+
+/* ==========================================================
+   17. PROJECT CARD
+   ========================================================== */
+
+.vdt-card {
+  margin-top: 16px;
+
+  padding: 20px 21px;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-large);
+
+  background: linear-gradient(145deg, var(--bg-card), #0b1727);
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+.vdt-score {
+  color: var(--cyan-soft);
+
+  font-size: 2rem;
+  font-weight: 750;
+
+  letter-spacing: -0.04em;
+}
+
+.vdt-muted {
+  color: var(--text-secondary);
+}
+
+/* ==========================================================
+   18. LAYOUT
+   ========================================================== */
+
+[data-testid="stHorizontalBlock"] {
+  gap: 1rem;
+}
+
+[data-testid="stMarkdownContainer"] ul {
+  padding-left: 1.35rem;
+}
+
+[data-testid="stMarkdownContainer"] li {
+  margin-bottom: 0.38rem;
+
+  color: #d6deea;
+
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   19. FOCUS
+   ========================================================== */
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(34, 211, 238, 0.75) !important;
+
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   20. SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--bg-main);
+
+  border-radius: 999px;
+
+  background: #26384f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #35526f;
+}
+
+/* ==========================================================
+   21. RESPONSIVE - TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+  .block-container {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+
+  .vdt-hero {
+    padding: 25px 18px;
+  }
+
+  .vdt-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  div[data-testid="stRadio"] {
+    width: min(720px, 100%) !important;
+  }
+
+  div[data-testid="stRadio"] div[role="radiogroup"] {
+    flex-wrap: wrap !important;
+  }
+
+  div[data-testid="stRadio"] div[role="radiogroup"] > label {
+    flex: 1 1 30% !important;
+  }
+}
+
+/* ==========================================================
+   22. RESPONSIVE - MOBILE
+   ========================================================== */
+
+@media (max-width: 600px) {
+  .block-container {
+    padding-top: 1.1rem !important;
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+  }
+
+  .vdt-hero {
+    margin-bottom: 16px;
+    padding: 22px 15px;
+    border-radius: 18px;
+  }
+
+  .vdt-hero h1 {
+    font-size: 1.55rem;
+  }
+
+  .vdt-hero p {
+    font-size: 0.86rem;
+  }
+
+  div[data-testid="stRadio"] {
+    width: 100% !important;
+    padding: 12px !important;
+  }
+
+  div[data-testid="stRadio"] div[role="radiogroup"] > label {
+    flex: 1 1 45% !important;
+    min-height: 42px;
+  }
+
+  div[data-testid="stRadio"] div[role="radiogroup"] > label p {
+    font-size: 0.81rem;
+  }
+
+  h2 {
+    font-size: 1.35rem !important;
+  }
+
+  h3 {
+    font-size: 1.07rem !important;
+  }
+}
+
+/* ==========================================================
+   FINAL FIX - INPUT / TEXTAREA ĐỒNG BỘ HOÀN TOÀN
+   ========================================================== */
+
+/* Ô tiêu đề và ô nội dung dùng chính xác cùng font */
+div[data-baseweb="input"] input,
+div[data-testid="stTextArea"] textarea,
+div[data-baseweb="textarea"] textarea,
+.stTextArea textarea {
+  font-family: "Segoe UI", Arial, sans-serif !important;
+  font-size: 0.93rem !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+
+  letter-spacing: normal !important;
+  line-height: 1.45 !important;
+
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+
+  caret-color: #111827 !important;
+}
+
+/* Placeholder của cả 2 loại input */
+div[data-baseweb="input"] input::placeholder,
+div[data-testid="stTextArea"] textarea::placeholder,
+div[data-baseweb="textarea"] textarea::placeholder,
+.stTextArea textarea::placeholder {
+  font-family: "Segoe UI", Arial, sans-serif !important;
+  font-size: 0.93rem !important;
+  font-weight: 400 !important;
+
+  color: #6b7280 !important;
+  -webkit-text-fill-color: #6b7280 !important;
+
+  opacity: 1 !important;
+}
+
+/* Textarea chỉ khác input ở padding dọc */
+div[data-testid="stTextArea"] textarea,
+div[data-baseweb="textarea"] textarea,
+.stTextArea textarea {
+  padding: 14px 15px !important;
+}
